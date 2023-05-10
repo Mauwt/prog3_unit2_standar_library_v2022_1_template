@@ -17,6 +17,7 @@ static void test_1() {
     for (const auto& row : res1) {
         for (const auto& item : row)
             cout << item << " ";
+        cout << "||";
     }
 }
 
