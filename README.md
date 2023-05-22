@@ -182,25 +182,25 @@ auto codes = filter_codes<forward_list>('data.txt', 'c');
 
 Desarrollar el template de clase `fixed_stack` que permita implementar pilas de tamaño fijo que cuente con 2 parámetros:
 
-- Tipo de dato de los valores que almacenara la pila (`T`) (Parámetro tipo)
+- Tipo de dato de los valores que almacenara la pila (`value_type`) (Parámetro tipo)
 - Cantidad fija de valores que aceptara la pila (`sz`) (Parámetro No tipo)
 
 y que cuenten con los siguientes métodos:
 
 - `fixed_stack(std::initializer_list lst)` constructor que permita copiar valores en la pila considerando como restricción la cantidad fija de valores aceptada por la pila, en caso `lst` tuviera más valores que los soportados por la pila esos valores serian descartados. 
-- `T top()` retorna el valor al tope de la pila
+- `value_type top()` retorna el valor al tope de la pila
 - `pop()` remueve el valor del tope de la pila y actualiza el valor del tope.
-- `bool push(T Value)` agrega un nuevo valor a la pila, actualiza la posición del tope y retornar `true` si fue exitoso, se considera que NO es exitoso si se intenta ingresar un valor y se rebasa el tope máximo definido por el tamaño fijo de la pila.  
+- `bool push(value_type Value)` agrega un nuevo valor a la pila, actualiza la posición del tope y retornar `true` si fue exitoso, se considera que NO es exitoso si se intenta ingresar un valor y se rebasa el tope máximo definido por el tamaño fijo de la pila.  
 - `boo empty()` retorna `true` si la pila esta vacía.
 - `int size()` retorne la cantidad de datos grabados en la pila.
 
 Adicionalmente elaborar el template de clase `fixed_stack_pusher` amiga de la clase `fixed_stack` que se comportara como un iterador `forward` para lo cual la clase `fixed_stack_pusher` debe implementar los siguientes métodos:
 
-- `fixed_stack_pusher(fixed_stack<T, sz> stack)` constructor utilizado para que la clase `fixed_stack_pusher` acceda a los valores almacenados y al tope de la pila.
+- `fixed_stack_pusher(fixed_stack<value_type, sz> stack)` constructor utilizado para que la clase `fixed_stack_pusher` acceda a los valores almacenados y al tope de la pila.
 
-- `fixed_stack_inserter& operator++()` y `fixed_stack_inserter<T, sz> operator++(int)` que permiten avanzar desde el primer elemento hacia adelante.
+- `fixed_stack_inserter& operator++()` y `fixed_stack_inserter<value_type, sz> operator++(int)` que permiten avanzar desde el primer elemento hacia adelante.
 
-- `fixed_stack_inserter& operator=(T value)` que permite realizar el `push` de un nuevo valor en la pila.
+- `fixed_stack_inserter& operator=(value_type value)` que permite realizar el `push` de un nuevo valor en la pila.
 
 - `fixed_stack_inserter& operator*()` que retorne la referencia a la misma clase (usar `*this`).
 

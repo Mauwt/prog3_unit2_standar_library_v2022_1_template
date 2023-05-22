@@ -1,4 +1,4 @@
-//
+
 // Created by rudri on 9/12/2020.
 //
 #include "catch.hpp"
@@ -6,6 +6,8 @@
 #include <iterator>
 #include <vector>
 #include <utility>
+#include <memory>
+
 #include "p9.h"
 using namespace std;
 
@@ -50,7 +52,7 @@ static void test_4() {
 }
 
 static void test_5() {
-    fixed_stack<unique_ptr<pair<int, int>>, 7> fs1;
+    fixed_stack<std::unique_ptr<pair<int, int>>, 7> fs1;
     int n = 0;
     cin >> n;
     vector<pair<int, int>> vc1(n);
